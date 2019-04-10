@@ -49,6 +49,8 @@ name=iaas
 baseurl=ftp://192.168.100.10/iaas  
 gpgcheck=0  
 enabled=1  
+> `yum clean all`清除所有yum  
+> `yum update`更新yum  
 
 > `yum install vsftpd –y` 安装ftp服务  
 > `vi /etc/vsftpd/vsftpd.conf`  
@@ -56,44 +58,19 @@ enabled=1
 > `systemctl start vsftpd` 启动  
 > `systemctl enable vsftpd` 设置开机启动  
 
-> `yum install iaas-xiandian -y` 安装iaas-xiandian软件包  
-> 编辑文件`/etc/xiandian/openrc.sh`
+> `yum install iaas-xiandian -y` 安装iaas-xiandian软件包（两个节点都安装）    
+> 编辑文件`/etc/xiandian/openrc.sh` 配置信息见表格    
 
 > 数据库安装  
-# iaas install mysql.sh没有测试  
-yum install  mysql  mysql-server MySQL-python  
-修改 /etc/my.cnf文件[mysqld]中添加  
-`max_connections=10000`  
-`default-storage-engine = innodb`  
-`innodb_file_per_table`  
-`collation-server = utf8_general_ci`  
-`init-connect = 'SET NAMES utf8'`  
-`character-set-server = utf8`  
-启动服务  
-`systemctl enable mariadb.service`  
-`systemctl start mariadb.service`  
-配置Mysql  
-`#mysql_secure_installation` 
-按enter确认后设置数据库root密码  
-`Remove anonymous users? [Y/n] y`     
-`Disallow root login remotely? [Y/n] n`   
-`Remove test database and access to it? [Y/n] y` 
-`Reload privilege tables now? [Y/n] y`  
-修改`/usr/lib/systemd/system/mariadb.service`  
-`[Service]`  
-新添加两行如下参数：  
-`LimitNOFILE=10000`  
-`LimitNPROC=10000`    
-重新加载系统服务，并重启mariadb服务  
-`#systemctl daemon-reload`  
-`#service mariadb restart`  
-compute节点  
-`#yum -y install  MySQL-python`  
+> iaas install mysql.sh    
+     
+> compute节点  
+> `#yum -y install  MySQL-python`  
 
-> `mysql -uroot -p000000` 登陆mysql
-> `show databases;` 查看数据库    
+> `mysql -uroot -p000000` 以root用户登录    
+> `show databases;` 查询数据库列表信息     
 
-##  `/usr/local/bin`先电里的脚本存放位置
+## 注意： `/usr/local/bin`是先电里的脚本存放位置，千万记住！！！部署的iaas的sh脚本想不起来可以从这里边找！！！
 
 > `iaas-install-keystone.sh`安装keystone  
 > `mysql -uroot -p000000` 登陆mysql  
@@ -101,11 +78,11 @@ compute节点
 > `use keystone;`  
 > `show grants for 'keystone'@'%';`
 
-> `iaas-install-glance.sh`安装glance
-> `systemctl status openstack-glance*`查看服务状态  
+> `iaas-install-glance.sh`安装glance  
+> `systemctl status openstack-glance*` 查看服务状态  
 
-> `iaas-install-nova-controller.sh`安装nova
-> `source  /etc/keystone/admin-openrc.sh`  解决权限问题  
+> `iaas-install-nova-controller.sh` 安装nova  
+> `source  /etc/keystone/admin-openrc.sh`  解决权限问题，若上一步报权限错误，则执行此条   
 > `nova service-list`
 
 > ``
