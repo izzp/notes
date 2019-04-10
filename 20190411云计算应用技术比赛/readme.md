@@ -70,8 +70,9 @@ enabled=1
 > `systemctl enable vsftpd` 设置开机启动  
 ----
 > `yum install iaas-xiandian -y` 安装iaas-xiandian软件包（***两个节点都安装***）    
-> 编辑文件`/etc/xiandian/openrc.sh` 配置信息见表格    
+> 编辑文件`/etc/xiandian/openrc.sh` 配置信息见表格  
 
+> 所有节点执行预部署脚本 iaas-pre-host.sh  (重要！！！装好后重启)  
 > 数据库安装（***控制节点***）  
 > iaas install mysql.sh  
 
@@ -93,4 +94,22 @@ enabled=1
 > `source  /etc/keystone/admin-openrc.sh`  解决权限问题，若上一步或下一条报权限错误，则执行此条（必须背会！！！）  
 > `nova service-list`使用nova相关命令查询nova服务列表  
 ----
-> ``
+> 控制节点
+> `iaas-install-nova-controller.sh`  
+> 计算节点
+> `iaas-install-nova-compute.sh`
+----
+> 安装`neutron`  
+控制节点  
+`iaas-install-neutron-controller.sh`  
+`iaas-install-neutron-controller-gre.sh`  
+计算节点  
+`iaas-install-neutron-compute.sh`  
+`iaas-install-neutron-compute-gre.sh`  
+---- 
+> 安装dsahboard.sh(仅控制节点)  
+`iaas-install-dashboard.sh`  
+`setsebool -P httpd_can_network_connect on`
+----
+`192.168.100.10/dashboard/`即可访问web界面  
+域`demo` 用户名`admin`  密码`000000`  
