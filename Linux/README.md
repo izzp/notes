@@ -1,5 +1,9 @@
 # Linux
 
+## Linux的一些笔记
+
+> 见左侧目录
+
 ### 常用Linux控制组合键
 
 | 组合键 |             作用             |
@@ -12,26 +16,4 @@
 | Ctrl+U |          删除当前行          |
 | Ctrl+A |           回到行首           |
 | Ctrl+R |       搜索命令历史记录       |
-
-### 安装中文man
-
-```bash
-[root@ali-bj-lh-1 /]# yum list | grep man.*zh
-man-pages-zh-CN.noarch                   1.5.2-4.el7                   base     
-[root@ali-bj-lh-1 /]# yum -y install man-pages-zh-CN.noarch
-[root@ali-bj-lh-1 /]# vim /root/.bash_profile 
-alias cman="man -M /usr/share/man/zh_CN"
-[root@ali-bj-lh-1 /]# source .bash_profile
-[root@ali-bj-lh-1 /]# cman cd
-```
-
-### 工具
-
-#### 查看端口
-
-netstat -nltp
-
-需安装net-tools `yum install net-tools`
-
-
 
