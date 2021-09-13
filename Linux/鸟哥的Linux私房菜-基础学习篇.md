@@ -2,7 +2,7 @@
 
 ## 第一部分 Linux的规则安装
 
-### 基本命令
+### 简单基本命令
 
 #### 日期
 
@@ -111,5 +111,67 @@ Mandatory arguments to long options are mandatory for short options too.
 
 ```bash
 [ovo@study ~]$ man date
+# 加-f取得更多信息
+[root@study ~]# man -f man
+man (1)              - 格式化并显示在线帮助手册页
+man (7)              - 格式化手册页的宏
+man (1p)             - display system documentation
+[root@study ~]# man 7 man
 ```
 
+> 第一行DATE(1)含义
+>
+> 1：用户在shell环境中可以操作的命令或文件
+>
+> 4：设备文件的说明，通常在/dev下的文件
+>
+> 5：配置文件或某些文件的格式
+>
+> 8：系统管理员可用的管理命令
+>
+> 9：跟内核有关的文件
+
+> `/`：向下查找字符串
+>
+> `?`：向上查找字符串
+>
+> `n,N`：向上，向下查询
+>
+> `	q	`：结束此次man page
+
+#### 说明文件
+
+>  `/usr/share/doc`：说明文件
+
+#### nano简单文件编辑器
+
+> 详见打开之后说明，`^`代表`Ctrl`
+
+#### 关机
+
+```bash
+#将数据同步写入硬盘
+sysc
+#关机
+shutdown
+reboot
+halt 系统停止
+poweroff
+
+[root@study ~]# shutdown --help
+shutdown [OPTIONS...] [TIME] [WALL...]
+Shut down the system.
+
+     --help      Show this help
+  -H --halt      Halt the machine
+  -P --poweroff  Power-off the machine
+  -r --reboot    Reboot the machine
+  -h             Equivalent to --poweroff, overridden by --halt
+  -k             Don't halt/power-off/reboot, just send warnings
+     --no-wall   Don't send wall message before halt/power-off/reboot
+  -c             Cancel a pending shutdown
+```
+
+## 第二部分 Linux文件、目录与磁盘格式
+
+### 第五章 Linxu的文件权限与目录配置
