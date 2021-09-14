@@ -175,3 +175,42 @@ Shut down the system.
 ## 第二部分 Linux文件、目录与磁盘格式
 
 ### 第五章 Linxu的文件权限与目录配置
+
+#### 账号相关信息
+
+`/etc/passwd`：账号相关信息
+
+`/etc/shadow`：密码记录
+
+`/etc/group`：组信息
+
+```bash
+#切换成root
+[ovo@study /]$ su -
+密码：
+上一次登录：一 9月 13 08:50:49 CST 2021pts/0 上
+[root@study ~]#切换成功
+```
+
+#### 文件属性
+
+```bash
+[ovo@study ovo]$ ls -al
+总用量 0
+drwxrwxrwx.  3 root root  35 9月  13 09:52 .
+dr-xr-xr-x. 18 root root 235 9月  13 09:50 ..
+drwxr-xr-x.  2 root root   6 9月  13 09:50 a
+-rw-r--r--.  1 root root   0 9月  13 09:50 b
+-rw-rw-r--.  1      ovo       ovo         0       9月  13 09:52   ovo
+#文件类型权限 链接数 文件拥有者 文件所属用户组 文件大小 文件最后被修改的时间 文件名
+```
+
+`drwxrwxrwx`：
+
+- 第一位：[d]代表目录，[-]文件，[l]链接文件
+
+- 后面三位一组，是权限，
+  - 第一组：文件拥有者可具备的权限
+  - 第二组：加入此用户组之账号的权限
+  - 第三组：非本人且没有加入本用户组的其他账号的权限
+
