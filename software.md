@@ -11,16 +11,16 @@
 |[Node js](https://nodejs.org/zh-cn/)| 基于 Chrome V8 引擎 的 JavaScript 运行时环境。 |
 |[IDEA](https://www.jetbrains.com/idea/)| 学生可以申请教育授权 |
 |[VS 2019](https://visualstudio.microsoft.com/zh-hans/vs/)| 宇宙第一IDE,2022版本貌似快出了 |
-|VS Code| 当作编辑器使用，写前端也可 |
+|[VS Code](https://code.visualstudio.com/)| 当作编辑器使用，写前端也可 |
 |Dev-C++| C和C++用 |
 |phpstudy| 使用mysql功能，不想一直开着mysql |
 |PotPlayer-64| 视频播放器 |
 |Navicat Premium| 数据库软件 |
-|Typora| md编辑器 |
-|Pandoc| md编辑器扩充“导出”使用 |
-|python|    |
+|Typora| markdown编辑器 |
+|Pandoc| Typora编辑器扩充“导出”使用 |
+|[Python](https://www.python.org/)|    |
 |Eclipse| Java学习路上的绊脚石，IDEA永远的神 |
-|[Firefox Dev](https://www.mozilla.org/zh-CN/firefox/new/)| 记得下载国际版本（非com.cn网址org才是），必备浏览器之一（dev版本图标好看） |
+|[Firefox Dev](https://www.mozilla.org/zh-CN/firefox/new/)| 记得下载国际版本（非com.cn网址,org才是），必备浏览器之一（dev版本图标好看） |
 |[Chrome](https://www.google.cn/chrome/)| 必备浏览器之一，dev版本也挺好用的 |
 |Windows Terminal| 微软出的，好看好用的一个终端，微软商店即可下载 |
 |[1password](https://1password.com/)| 多平台密码管理软件 |
