@@ -33,6 +33,13 @@ LC_NUMERIC="zh_CN.UTF-8"
 Fri Sep 10 15:33:37 CST 2021
 ```
 
+永久修改语系
+
+```bash
+[root@ovo /]# cat /etc/locale.conf
+LANG=en_US.UTF-8
+```
+
 #### 显示日历的命令
 
 ```bash
@@ -208,9 +215,96 @@ drwxr-xr-x.  2 root root   6 9月  13 09:50 a
 `drwxrwxrwx`：
 
 - 第一位：[d]代表目录，[-]文件，[l]链接文件
-
 - 后面三位一组，是权限，
   - 第一组：文件拥有者可具备的权限
   - 第二组：加入此用户组之账号的权限
   - 第三组：非本人且没有加入本用户组的其他账号的权限
 
+#### 修改文件属性与权限
+
+- chgrp：修改文件所属用户组
+
+  ```bash
+  [root@study ~]# chgrp users initial-setup-ks.cfg
+  [root@study ~]# ll
+  总用量 8
+  -rw-------. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 root users 1917 9月  10 14:57 initial-setup-ks.cfg
+  # 加参数-R为递归修改子目录
+  ```
+
+- chown：修改文件所有者
+
+  ```bash
+  [root@study ~]# chown ovo initial-setup-ks.cfg
+  [root@study ~]# ll
+  总用量 8
+  -rw-------. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  # 加参数-R为递归修改子目录
+  ```
+
+- chmod：修改文件的权限，SUID,SGID,SBIT等特性
+
+  ```bash
+  [root@study ~]# ll
+  总用量 8
+  -rw-------. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  [root@study ~]# chmod 611 anaconda-ks.cfg
+  [root@study ~]# ll
+  总用量 8
+  -rw---x--x. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  # 加参数-R为递归修改子目录
+  ```
+
+  - r:4
+  - w:2
+  - x:1
+
+  ```bash
+  # u g o a   +-=    rwx    文件或目录
+  [root@study ~]# ll
+  总用量 8
+  -rw---x--x. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  [root@study ~]# chmod a+x anaconda-ks.cfg
+  [root@study ~]# ll
+  总用量 8
+  -rwx--x--x. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  [root@study ~]# chmod a-x anaconda-ks.cfg
+  [root@study ~]# ll
+  总用量 8
+  -rw-------. 1 root root  1869 9月  10 14:56 anaconda-ks.cfg
+  -rw-r--r--. 1 ovo  users 1917 9月  10 14:57 initial-setup-ks.cfg
+  ```
+
+  #### Linxu目录配置的依据-FHS
+
+  ##### 根目录（/）的意义与内容
+
+  |              目录              | 应存放的内容 |
+  | :----------------------------: | :----------: |
+  | 第一部分:FHS要求必须存在的目录              ||
+  |              /bin              | 系统有很多放置执行文件的目录，但/bin比较特殊。因为/bin放置的是在单人维护模式下还能够被操作的指令。在/bin底下的指令可以被root与一般帐号所使用，主要有：cat，chmod，chown，date，mv，mkdir，cp，bash等等常用的指令 |
+  | /boot | 这个目录主要在放置开机会使用到的文件，包括Linux内核文件以及启动选项与启动所需配置文件等。Linux 内核常用的文件名为：vmlinuz，如果使用的是grub2这个开机管理程序，则还会存在/boot/grub2/这个目录 |
+  | /dev | 在Linux系统上，任何设备与接口设备都是以文件的形式存在于这个目录当中的。你只要透过存取这个目录底下的某个档案，就等于存取某个装置啰～比要重要的文件有/dev/null，/dev/zero，/dev/tty，/dev/loop\*，/dev/sd\*等等 |
+  | /etc |              |
+  | /lib |              |
+  | /media |              |
+  | /mnt |              |
+  | /opt |              |
+  | /run |              |
+  | /sbin |              |
+  | /srv |              |
+  | /tmp |              |
+  | /usr | 第二层FHS设置，见后续 |
+  | /var | 第二层FHS设置，见后续 |
+  | 第二部分：FHS建议可以存在的目录 |              |
+  | /home | 系统默认的用户家目录 |
+  | /lib<qual> | 存放与/lib不同格式的二进制函数库，例如支持64位的/lib64函数库 |
+  | /root | root的家目录（维护模式时仅挂载/时就有） |
+
+  
