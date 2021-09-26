@@ -1,6 +1,13 @@
 # docker
+## 帮助命令
 
-## 基本命令
+```shell
+docker version # 显示 Docker 版本信息。
+docker info # 显示 Docker 系统信息，包括镜像和容器数
+docker --help # 帮助
+```
+
+## 镜像基本命令
 
 #### 列出存在的镜像
 
@@ -30,7 +37,7 @@ Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
 ```
 
-#### 删除镜像
+#### 删除镜像 
 
 ```bash
 [root@ovo ~]# docker images
@@ -78,11 +85,105 @@ ad4c705f24d3   2 weeks ago   /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0
 
 `docker save 镜像名称`
 
-#### 帮助命令
+## 容器基本命令
 
-```shell
-docker version # 显示 Docker 版本信息。
-docker info # 显示 Docker 系统信息，包括镜像和容器数
-docker --help # 帮助
+#### Docker查看所有容器
+
+`docker ps`		查看所有运行的容器
+
+`docker ps -a`	查看所有容器（包括启动和退出）
+
+#### Docker开一个新容器
+
+`docker run 参数 镜像名称：tag 执行的命令`
+
+常用参数
+
+> -i	保持和docker容器内的交互，运行的命令结束后，容器依然存活，没有退出
+>
+> -t	虚拟一个tty
+>
+> -d	后台运行容器
+>
+> --rm	执行完成命令或程序就销毁
+>
+> --name	起一个自定义名称
+>
+> -p	宿主机：内部端口
+
+```bash
+[root@ovo ~]# docker run --rm -d --name tomcat1 -p 8080:8080 tomcat
+0078b7050f269ec0d772770a9485866be991ec28e8a1f9b4a11a4338b889db5e
+[root@ovo ~]# docker ps
+CONTAINER ID   IMAGE     COMMAND             CREATED          STATUS          PORTS                                       NAMES
+0078b7050f26   tomcat    "catalina.sh run"   16 seconds ago   Up 15 seconds   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   tomcat1
 ```
+
+#### 停止指定容器
+
+> 参数可以是name，id
+
+```bash
+[root@ovo ~]# docker stop httpd5
+httpd5
+[root@ovo ~]# docker stop 54f1857
+54f1857
+```
+
+#### 停止所有容器
+
+```bash
+[root@ovo ~]# docker stop $(docker ps -a -q)
+bce8ea89039a
+457c67abc106
+54f1857db6aa
+efea6eaac7b3
+993be5506025
+13379fc5cdb5
+0078b7050f26
+```
+
+#### Docker删除容器
+
+> 先停止才可以删除
+
+```bash
+[root@ovo ~]# docker rm efea6eaac7b3
+efea6eaac7b3
+[root@ovo ~]# docker rm httpd2
+httpd2
+```
+
+#### Docker开启容器
+
+`docker start 名称/ID`
+
+#### Docker进入容器
+
+```bash
+[root@ovo ~]# docker exec -it tomcat9 bash
+root@7deed1936cdd:/usr/local/tomcat# pwd
+/usr/local/tomcat
+
+#exit退出此终端，不会导致容器停止
+```
+
+###  在宿主机与容器之间交换问价
+
+`docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-`	容器中复制到宿主机 
+
+`docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH`	宿主机复制到容器中
+
+```bash
+#容器复制到宿主机
+[root@ovo /]# docker cp tomcat9:/usr/local/tomcat/webapps/ROOT/index.html /ovo
+[root@ovo /]# ls /ovo
+hplus  index.html  logo1.jpg  logo.png
+#宿主机复制到容器
+[root@ovo /]# docker cp /ovo/hplus tomcat9:/usr/local/tomcat/webapps/ROOT/
+```
+
+
+
+
 
