@@ -75,6 +75,48 @@ nginx        latest    ad4c705f24d3   2 weeks ago   133MB
 
 > 也可以`docker images rm 镜像ID`
 
+### 删除虚悬镜像
+
+```bash
+[root@ovo ~]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+demo2        latest    d09eaac86c98   30 minutes ago   700MB
+<none>       <none>    57ece09363b6   36 minutes ago   700MB
+httpd        latest    5ebe6e00baf9   5 days ago       138MB
+centos       latest    5d0da3dc9764   11 days ago      231MB
+tomcat       9         62146f8bda84   12 days ago      680MB
+tomcat       latest    bb832de23021   12 days ago      680MB
+nginx        latest    ad4c705f24d3   2 weeks ago      133MB
+mysql        5.6       e05271ec102f   3 weeks ago      303MB
+jetty        latest    af0133201d9d   6 weeks ago      478MB
+[root@ovo ~]# docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+deleted: sha256:57ece09363b66530efb313a53ad36f4997d0f9dce48fc12e9e5ff89a1a60be7d
+deleted: sha256:7515d2d99f01d2ede202f4f7e388600e59aaae8e4472fda459651fda08976f30
+deleted: sha256:e65ff2e28cab616b0b03efd80743be52a3cc9ff9f8581508b39ca9099612c28f
+deleted: sha256:28a4abe3d5f354ec51be9c84e1b972354946dcecfba0277708c31ab0957855ac
+deleted: sha256:e408848f50fe520128ee5822ab6a5c99a1086e6f1b54b08ca9d4c6c960775d23
+deleted: sha256:0b39432344b5db31841b487340d554c84ed502d02b41ef97b9b8a1bb2600d159
+deleted: sha256:ae5416a820f12ea2daf5b46b58b75d17f8ccb208433bc719bd8cc1dc53e7566b
+
+Total reclaimed space: 19.87MB
+[root@ovo ~]# docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+demo2        latest    d09eaac86c98   30 minutes ago   700MB
+httpd        latest    5ebe6e00baf9   5 days ago       138MB
+centos       latest    5d0da3dc9764   11 days ago      231MB
+tomcat       9         62146f8bda84   12 days ago      680MB
+tomcat       latest    bb832de23021   12 days ago      680MB
+nginx        latest    ad4c705f24d3   2 weeks ago      133MB
+mysql        5.6       e05271ec102f   3 weeks ago      303MB
+jetty        latest    af0133201d9d   6 weeks ago      478MB
+
+```
+
+
+
 ### 镜像制作历史
 
 ```bash
@@ -311,4 +353,193 @@ nginx
 ```
 
 ### MySQL
+
+```bash
+#拉取镜像
+[root@ovo ~]# docker pull mysql:5.6
+5.6: Pulling from library/mysql
+442547fc262c: Pull complete
+2bf716144687: Pull complete
+e8b3b16588b1: Pull complete
+c89f7ee6da81: Pull complete
+091490fb32f5: Pull complete
+6eeb696bc30f: Pull complete
+8a92263747b2: Pull complete
+07097cad43f1: Pull complete
+e09f00a44ec7: Pull complete
+18f954e29df7: Pull complete
+b46b7702c2b2: Pull complete
+Digest: sha256:35aa66157963240633625d6490d940069a1311fdfc022bf32116cbf95b90b541
+Status: Downloaded newer image for mysql:5.6
+docker.io/library/mysql:5.6
+
+#创建并启动MySQL容器
+[root@ovo ~]# docker run -d --name mysql5.6-3306 -p 3306:3306 -e MYSQL_ROOT_PASSWORD='zhaozhipeng' mysql:5.6
+b379e7a8cfcff9b4b382322f1fc221496b494d2122e039e73dbe0af8903fce62
+
+#进入容器，修改设置
+[root@ovo ~]# docker exec -it b379 bash
+root@b379e7a8cfcf:/# mysql -uroot -pzhaozhipeng
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.51 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+#授权远程访问（关闭授权是revoke all on *.* from dba@localhost;）
+mysql> grant all privileges on *.* to 'root'@'%' identified by 'zhaozhipeng';
+Query OK, 0 rows affected (0.00 sec)
+#刷新授权
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+```
+
+> 此时即可远程链接使用
+
+## Docker定制镜像
+
+**Docker层概念**
+
+- 更改现有镜像，提交
+- 使用Dockerfile定制镜像
+
+### 使用Dockerfile定制镜像——常用命令
+
+> 每条命令都会新建一层
+
+#### FROM	
+
+--指定基础镜像
+
+```bash
+#一般是第一条命令，
+FROM <镜像>:[tag]
+FROM <镜像>@digest[效验码]
+#当主机没有时，会自动去官网HUB下载
+```
+
+#### MAINTAINER	LABLE
+
+> 提供制作者本人信息
+> LABLE逐步替换MAINTAINER
+
+#### NEV
+
+> 配置环境变量
+
+#### WORKDIR
+
+> 切换工作目录
+> `WORKDIR /usr/local/tomcat`
+
+#### COPY
+
+> 把宿主机文件复制到镜像中去
+
+#### ADD
+
+> 类似COPY命令
+>
+> 从路径复制到容器内部路径
+>
+> 路径可以是远程链接
+
+#### VOLUME
+
+> 创建一个可以从本地主机或者其他容器挂载的挂载点，一般用来 存放数据和需要保持的数据等
+
+#### RUN
+
+> 运行命令
+
+```bash
+RUN yum update
+RUN yum install -y tree
+RUN wegt http://dev.mezzp.com/1.jpg
+RUN tar xzf redis-4.0.1.tar.gz 
+```
+
+#### EXPOSE
+
+> 为容器打开指定的端口以实现与外部通信
+>
+> `EXPOSE 80/tcp 23/udp`
+>
+> 不加协议则为tcp
+
+### 两个tomcat的测试
+
+> `docker build` 构建镜像
+>
+> -t	指定目标镜像名
+>
+> .	代表Dockerfile上下文位置
+
+```bash
+#基于tomcat创建一个镜像，要有tomcat，写入hello
+
+#创建Dockerfile文件，内容如下
+FROM tomcat
+RUN mkdir -p /usr/local/tomcat/webapps/ROOT/
+RUN echo 'hello' > /usr/local/tomcat/webapps/ROOT/index.html
+
+#构建镜像
+[root@ovo demo1]# docker build -t demo1 .
+Sending build context to Docker daemon  2.048kB
+Step 1/3 : FROM tomcat
+ ---> bb832de23021
+Step 2/3 : RUN mkdir -p /usr/local/tomcat/webapps/ROOT/
+ ---> Running in 011eecd9b153
+Removing intermediate container 011eecd9b153
+ ---> 0b39432344b5
+Step 3/3 : RUN echo 'hello' > /usr/local/tomcat/webapps/ROOT/index.html
+ ---> Running in f59ab912a68f
+Removing intermediate container f59ab912a68f
+ ---> 9315d0e8a0a4
+Successfully built 9315d0e8a0a4
+Successfully tagged demo1:latest
+
+#运行一个容器
+[root@ovo demo1]# docker run -d --name demo-9090 -p 9090:8080 demo1
+e60a9ddf57ba60b4ec9742634b6bbba60137c8e4956fd2ce7d93ac2329653e7c
+```
+
+
+
+
+```bash
+#基于tomcat创建一个镜像，要有tomcat，拷贝war运行
+
+#创建Dockerfile文件，内容如下
+FROM tomcat
+WORKDIR /usr/local/tomcat/webapps/
+COPY MavieManage-1.0.war /usr/local/tomcat/webapps/
+
+#构建镜像
+[root@ovo demo1]# docker build -t demo2 .
+Sending build context to Docker daemon  19.87MB
+Step 1/3 : FROM tomcat
+ ---> bb832de23021
+Step 2/3 : WORKDIR /usr/local/tomcat/webapps/
+ ---> Running in c84158e1043e
+Removing intermediate container c84158e1043e
+ ---> af556593d0e4
+Step 3/3 : COPY MavieManage-1.0.war /usr/local/tomcat/webapps/
+ ---> d09eaac86c98
+Successfully built d09eaac86c98
+Successfully tagged demo2:latest
+
+#运行一个容器
+[root@ovo demo1]# docker run -d --name demo-9091 -p 9091:8080 demo2
+9d21654459881006d5112f437c13633add25e169a3a92f805bf4e9f97ab71181
+
+#即可访问
+http://dev.mezzp.com:9091/MavieManage-1.0/
+```
 
