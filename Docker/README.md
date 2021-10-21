@@ -1,4 +1,17 @@
 # docker
+
+## 安装Docker
+
+### 使用官方安装脚本自动安装
+
+安装命令如下：
+
+```bash
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
+
+或者点击进入[官网](https://docs.docker.com/engine/install/)
+
 ## 帮助命令
 
 ```shell
