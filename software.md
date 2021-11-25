@@ -1,8 +1,10 @@
 # 常用软件记录
 
-> 自己电脑必备软件，供参考
+> 自己设备的一些必备软件，供参考
 
-`最后更新时间：20211109，待完善`
+`最后更新时间：20211125，待完善`
+
+## Windows
 
 | 软件名 | 描述 |
 |:-:|:-:|
@@ -23,7 +25,7 @@
 |[Firefox Dev](https://www.mozilla.org/zh-CN/firefox/new/)| 记得下载国际版本（非com.cn网址,org才是），必备浏览器之一（dev版本图标好看） |
 |[Chrome](https://www.google.cn/chrome/)| 必备浏览器之一，dev版本也挺好用的 |
 |Windows Terminal| 微软出的，好看好用的一个终端，微软商店即可下载 |
-|[1password](https://1password.com/)| 多平台密码管理软件 |
+|[1Password](https://1password.com/)| 多平台密码管理软件 |
 |Adobe Acrobat DC| pdf编辑相关 |
 |PS 2022| 没事p个图 |
 |Pr 2022|  |
@@ -47,3 +49,43 @@
 |网易云| 网抑云 |
 |[EarTrumpet](https://github.com/File-New-Project/EarTrumpet)| win10下分应用音量调节工具，商店可以下载 |
 | Snipaste | 超级好用的截图工具 |
+
+## iPadOS / iOS
+
+| 软件名 | 描述 |
+|:-:|:-:|
+|Chrome| 浏览器 |
+|Notability| 笔记软件，老用户不受订阅制影响 |
+|GoodNotes| 笔记软件 |
+|OneNote| 笔记软件，当然不是都用，结合使用，效果更佳 |
+|Procreate|  |
+|卡片日记| 见名知意 |
+|RD Client| 微软出的远程链接桌面 |
+|1Password| 密码管理器 |
+|彩云天气| 天气，挺准的 |
+|ToDesk| 远程软件 |
+|谷歌翻译|  |
+|米家|  |
+|Microsoft 365|  |
+|Gmail|  |
+|Lens| 也是微软出的，可以扫描文档 |
+|坚果云| 同步 |
+|Kindle|  |
+|To Do|  |
+|nPlayer| 视频播放器 |
+|OneDrive| Microsoft 365包含1T空间，随时查看电脑的文件 |
+|Termius| 一个远程终端软件 |
+|OutLook| 邮件 |
+|Brak|  |
+
+## Android
+
+| 软件名 | 描述 |
+|:-:|:-:|
+|        |      |
+|        |      |
+|        |      |
+|        |      |
+|        |      |
+|        |      |
+|        |      |
