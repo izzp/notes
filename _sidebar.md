@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-* [首页](/)
+* [首页](/ "zhao的部分笔记")
 * [常用软件记录](/software "必备软件")
 * [Linux](/Linux/ "Linux相关")
 * [Spring](/spring/ "Spring相关")
