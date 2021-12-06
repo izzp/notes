@@ -355,10 +355,51 @@ drwxr-xr-x.  2 root root   6 9月  13 09:50 a
 ..        代表上一层目录
 -         代表前一个工作目录
 ~         代表『目前使用者身份』所在的家目录
-~ovo  代表 ovo 這個使用者的家目錄(ovo是个账号名称)
+~ovo  代表 ovo 这个使用者的家目录(ovo是个账号名称)
 ```
 
 - cd：切换目录
+
 - pwd：显示示目前的目录
+
+  ```bash
+  [root@ali-bj-dev ~]# pwd
+  /root
+  ```
+
 - mkdir：建立一个新的目录
+
+  ```bash
+  # 建立test目录
+  [root@ali-bj-dev tmp]# mkdir test
+  # 使用-p选项建立多层目录
+  [root@ali-bj-dev tmp]# mkdir -p test1/test2/test3
+  # 建立目录时设置新目录权限
+  [root@ali-bj-dev tmp]# mkdir -m 711 test2
+  [root@ali-bj-dev tmp]# ls -ld test*
+  drwxr-xr-x 2 root root 4096 Dec  6 16:01 test
+  drwxr-xr-x 3 root root 4096 Dec  6 16:02 test1
+  drwx--x--x 2 root root 4096 Dec  6 16:02 test2
+  ```
+
 - rmdir：删除一个空的目录
+
+  有内容时无法删除目录
+
+#### 执行文件路径的变量：$PATH
+
+```bash
+[root@ali-bj-dev ~]# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+```
+
+#### 文件与目录的查看：ls
+
+```bash
+-a     # 列出所有文件，包括以 "." 开头的隐含文件。
+
+```
+
+#### 复制删除与移动：cp、rm、mv
+
+#### 获取路径的文件名与目录名称
