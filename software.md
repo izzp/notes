@@ -2,7 +2,7 @@
 
 > 自己设备的一些必备软件，供参考
 
-`最后更新时间：20211125，待完善`
+`最后更新时间：20211228，待完善`
 
 ## Windows
 
@@ -34,7 +34,7 @@
 |Clash for Windows| 不解释 |
 |everything| 搜索软件 |
 |wox| 应该算是快速启动，快速搜索软件，按Alt+空格，和everything搭配使用 |
-|Free File Sync| 文件同步软件 |
+|[Free File Sync](https://freefilesync.org/)| 文件同步软件 |
 |Microsoft 365| 之前叫office 365 ，附带1T OneDrive，很划算，自动同步文件到云 |
 |OBS Studio| 推流，录屏 |
 |To Desk| 远程控制 |
@@ -49,6 +49,7 @@
 |网易云| 网抑云 |
 |[EarTrumpet](https://github.com/File-New-Project/EarTrumpet)| win10下分应用音量调节工具，商店可以下载 |
 | Snipaste | 超级好用的截图工具 |
+| VeraCrypt | 免费开源磁盘加密软件 |
 
 ## iPadOS / iOS
 
@@ -76,16 +77,4 @@
 |OneDrive| Microsoft 365包含1T空间，随时查看电脑的文件 |
 |Termius| 一个远程终端软件 |
 |OutLook| 邮件 |
-|Brak|  |
-
-## Android
-
-| 软件名 | 描述 |
-|:-:|:-:|
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
+|Brak| 开源的消息推送服务 |
