@@ -72,3 +72,60 @@ chsh -s /bin/zsh
 | **wget**  | sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 | **fetch** | sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 
+### 安装NVM管理多版本Node.js
+
+安装和更新脚本		[项目地址](https://github.com/nvm-sh/nvm)
+
+```bash
+# 把命令中的版本改为最新版本 https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# 或者
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+重载环境变量
+
+```bash
+# For macOS/Linux With ZSH
+source ~/.zshrc
+# For Linux With Bash
+source ~/.bashrc
+```
+
+测试
+
+```bash
+nvm -v
+```
+
+基本使用
+
+```bashi
+# 查看已经安装的脚本
+nvm list
+
+# 查看可安装的lts版本
+nvm ls-remote --lts
+
+# 安装需要的版本
+nvm install 16.14.1
+
+# 激活需要使用的版本
+nvm use 16
+
+即可
+```
+
+卸载
+
+```bash
+# 删除NVM以及Node.js
+rm -rf ~/.nvm
+# 删除可能存在的NPM
+rm -rf ~/.npn
+# 在环境变量内移除：
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
