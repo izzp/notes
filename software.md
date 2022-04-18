@@ -2,7 +2,7 @@
 
 > 自己设备的一些必备软件，供参考
 
-`最后更新时间：20211228，待完善`
+`最后更新时间：20220418，待完善`
 
 ## Windows
 
@@ -50,6 +50,9 @@
 |[EarTrumpet](https://github.com/File-New-Project/EarTrumpet)| win10下分应用音量调节工具，商店可以下载 |
 | Snipaste | 超级好用的截图工具 |
 | VeraCrypt | 免费开源磁盘加密软件 |
+|[gpg4win](https://www.gpg4win.org/)| gpg4win |
+|[SourceTree](https://www.sourcetreeapp.com/)| Git管理工具 |
+|[Sandboxie-Plus](https://sandboxie-plus.com/downloads/)| 沙箱 |
 
 ## iPadOS / iOS
 
