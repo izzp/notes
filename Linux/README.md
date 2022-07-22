@@ -129,3 +129,30 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
+
+### Vim的使用
+
+三种模式： 正常模式，编辑模式，命令行模式
+区分大小写
+- i -编辑模式(插入左侧)
+- esc -正常模式
+- : -命令行模式
+- :q -仅退出
+- :q! -不保存退出
+- :wq -保存退出
+- HJKL -上下左右
+- o -新增下一行
+- O -新增上一行
+- G -到最后一行
+- gg -到第一行
+- yy -复制这一行
+- p -粘贴
+- dd -删除当前行
+- . -重复上一次操作
+- u -撤销前次操作
+- ctrl+r - 恢复前次操作
+- dw -删除单词
+- cw -改变单词
+- w -下个单词首部
+- e -下个单词尾部
+- b -上个单词首部
