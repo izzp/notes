@@ -10,8 +10,11 @@ yum install epel-release # repository that provides 'daemonize'
 yum install java-11-openjdk-devel
 yum install jenkins
 ```
+### war安装
 
-
+```bash
+nohup java -Dfile.encoding=UTF-8 -httpPort=3006 -jar jenkins.war >log.log &
+```
 
 ### 默认安装位置
 
