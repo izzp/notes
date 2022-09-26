@@ -129,11 +129,80 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
+### 使用Jenv配置多版本JDK
 
+[项目地址](https://www.jenv.be/)
+
+**下载jenv**
+
+```
+git clone https://github.com/jenv/jenv.git ~/.jenv
+```
+
+**配置到环境变量**
+
+到环境变量内配置jenv即可：
+
+```
+# Bash Shell用户
+vim ~/.bashrc
+# ZSH Shell用户
+vim ~/.zshrc
+```
+
+并添加：
+
+```
+# Jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+```
+
+**重载环境变量**
+
+最后，我们**重载环境变量**：
+
+```
+# Bash Shell用户
+source ~/.bashrc
+# ZSH Shell用户
+source ~/.zshrc
+```
+
+即可使用
+
+```
+jenv help
+```
+
+**添加JDK**
+
+```
+jenv add /usr/local/Zulu11
+```
+**切换JDK**
+切换的方法很简单，首先看看当前安装的JDK版本：
+
+```
+jenv versions
+```
+这个时候，我们用的还是默认JDK（system (set by /root/.jenv/version)），我们要切换到JDK11只需要：
+
+
+```
+jenv local 11
+```
+这时，这个目录下使用的JDK就是JDK11：
+需要全局JDK，可以用：
+
+```
+jenv global 11
+```
 ### Vim的使用
 
 三种模式： 正常模式，编辑模式，命令行模式
 区分大小写
+
 - i -编辑模式(插入左侧)
 - esc -正常模式
 - : -命令行模式
