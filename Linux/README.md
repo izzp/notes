@@ -225,3 +225,17 @@ jenv global 11
 - w -下个单词首部
 - e -下个单词尾部
 - b -上个单词首部
+
+###  MariaDB改密码
+
+```sql
+MariaDB [(none)]> grant all privileges on *.* to 'root'@'%' identified by '123456qwer';
+Query OK, 0 rows affected (0.005 sec)
+ 
+MariaDB [(none)]> delete from mysql.user where User='';
+Query OK, 2 rows affected (0.006 sec)
+ 
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+```
+
