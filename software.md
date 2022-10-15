@@ -1,15 +1,15 @@
 # 常用软件记录
 
-> 自己设备的一些必备软件，供参考
+> 自己设备的一些必备软件，仅记录，供参考
 
-`最后更新时间：20220418，待完善`
+`最后更新时间：20221015，待完善`
 
 ## Windows
 
 | 软件名 | 描述 |
 |:-:|:-:|
 |[Git](https://git-scm.com/)| 分布式版本控制系统 |
-|[Tortoise Git](https://tortoisegit.org/)| git图形化客户端 |
+|[Tortoise Git](https://tortoisegit.org/)| Git图形化客户端 |
 |[Node js](https://nodejs.org/zh-cn/)| 基于 Chrome V8 引擎 的 JavaScript 运行时环境。 |
 |[IDEA](https://www.jetbrains.com/idea/)| 学生可以申请教育授权 |
 |[VS 2022](https://visualstudio.microsoft.com/zh-hans/vs/)| 宇宙第一IDE |
@@ -18,7 +18,7 @@
 |phpstudy| 使用mysql功能，不想一直开着mysql |
 |PotPlayer-64| 视频播放器 |
 |Navicat Premium| 数据库软件 |
-|Typora| markdown编辑器 |
+|Typora| markdown编辑器，入正 |
 |Pandoc| Typora编辑器扩充“导出”使用 |
 |[Python](https://www.python.org/)|    |
 |Eclipse| Java学习路上的**绊脚石**，IDEA永远的神 |
@@ -41,7 +41,7 @@
 |VMware Workstation Pro| 虚拟机 |
 |xftp 7| |
 |xshell 7|   |
-|IDM| 下载软件 |
+|IDM| 下载软件，入正 |
 |火绒| |
 |软件管家独立版| 某大厂自己出的良心独立版本 |
 |QQ|   |
@@ -65,7 +65,7 @@
 |Procreate|  |
 |卡片日记| 见名知意 |
 |RD Client| 微软出的远程链接桌面 |
-|1Password| 密码管理器 |
+|Bitwarden| 密码管理器 |
 |彩云天气| 天气，挺准的 |
 |ToDesk| 远程软件 |
 |谷歌翻译|  |
@@ -73,11 +73,9 @@
 |Microsoft 365|  |
 |Gmail|  |
 |Lens| 也是微软出的，可以扫描文档 |
-|坚果云| 同步 |
-|Kindle|  |
-|To Do|  |
 |nPlayer| 视频播放器 |
 |OneDrive| Microsoft 365包含1T空间，随时查看电脑的文件 |
-|Termius| 一个远程终端软件 |
+|  熊猫吃短信   |                  见名知意                   |
 |OutLook| 邮件 |
 |Brak| 开源的消息推送服务 |
+|ServerCat| 监控、管理服务器和容器 |
