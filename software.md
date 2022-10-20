@@ -52,6 +52,7 @@
 | VeraCrypt | 免费开源磁盘加密软件 |
 |[gpg4win](https://www.gpg4win.org/)| gpg4win |
 |[SourceTree](https://www.sourcetreeapp.com/)| Git管理工具 |
+|[devtoys](https://devtoys.app//)| 开发人员的瑞士军刀 |
 |[Sandboxie-Plus](https://sandboxie-plus.com/downloads/)| 沙箱 |
 
 ## iPadOS / iOS
