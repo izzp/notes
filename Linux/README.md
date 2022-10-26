@@ -72,6 +72,16 @@ chsh -s /bin/zsh
 | **wget**  | sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 | **fetch** | sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 
+配置[powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题
+1. Clone the repository:
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+2. Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+
+3. 配置向导：键入`p10k configure`直接访问内置配置向导。
+
+
 ### 安装NVM管理多版本Node.js
 
 安装和更新脚本		[项目地址](https://github.com/nvm-sh/nvm)
@@ -226,8 +236,14 @@ jenv global 11
 - e -下个单词尾部
 - b -上个单词首部
 
-###  MariaDB改密码
+###  MariaDB相关
 
+安全配置脚本
+
+```
+mysql_secure_installation
+```
+改密码
 ```sql
 MariaDB [(none)]> grant all privileges on *.* to 'root'@'%' identified by '123456qwer';
 Query OK, 0 rows affected (0.005 sec)
