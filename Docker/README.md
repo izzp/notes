@@ -1,6 +1,17 @@
-# docker
+# Docker
 
 ## 安装Docker
+
+### Debian系
+
+```bash
+# 安装
+zhao@debian:~$ sudo apt install docker.io
+# 用户加入docker用户组
+zhao@debian:~$ sudo usermod -aG docker ${USER}
+# 重启docker服务
+zhao@debian:~$ sudo systemctl restart docker
+```
 
 ### 使用官方安装脚本自动安装
 
@@ -569,4 +580,3 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     -v portainer_data:/data \
     cr.portainer.io/portainer/portainer-ce:2.9.3
 ```
-

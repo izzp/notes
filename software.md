@@ -21,11 +21,12 @@
 |Typora| markdown编辑器，入正 |
 |Pandoc| Typora编辑器扩充“导出”使用 |
 |[Python](https://www.python.org/)|    |
+|[PowerToys](https://learn.microsoft.com/zh-cn/windows/powertoys/install)| 用于自定义 Windows 的实用工具 |
 |Eclipse| Java学习路上的**绊脚石**，IDEA永远的神 |
 |[Firefox Dev](https://www.mozilla.org/zh-CN/firefox/new/)| 记得下载国际版本（非com.cn网址,org才是），必备浏览器之一（dev版本图标好看） |
 |[Chrome](https://www.google.cn/chrome/)| 必备浏览器之一，dev版本也挺好用的 |
 |Windows Terminal| 微软出的，好看好用的一个终端，微软商店即可下载 |
-|[1Password](https://1password.com/)| 多平台密码管理软件 |
+|[Bitwarden](https://hub.docker.com/r/vaultwarden/server)| 多平台密码管理软件，使用开源版自建 |
 |Adobe Acrobat DC| pdf编辑相关 |
 |PS 2022| 没事p个图 |
 |Pr 2022|  |
@@ -33,7 +34,6 @@
 |CCleaner| 清理软件 |
 |Clash for Windows| 不解释 |
 |everything| 搜索软件 |
-|wox| 应该算是快速启动，快速搜索软件，按Alt+空格，和everything搭配使用 |
 |[Free File Sync](https://freefilesync.org/)| 文件同步软件 |
 |Microsoft 365| 之前叫office 365 ，附带1T OneDrive，很划算，自动同步文件到云 |
 |OBS Studio| 推流，录屏 |
