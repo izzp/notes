@@ -208,12 +208,29 @@ jenv local 11
 ```
 jenv global 11
 ```
+### nano的使用
+
+高亮
+
+```bash
+# 复制配置文件
+$ sudo cp /etc/nanorc ~/.nanorc
+# 加入包含
+$ sudo nano .nanorc
+include "/usr/share/nano/*.nanorc"
+```
+更多高亮
+https://github.com/scopatz/nanorc
+
 ### Vim的使用
 
 三种模式： 正常模式，编辑模式，命令行模式
 区分大小写
 
 - i -编辑模式(插入左侧)
+- a - 附后
+- I -行前
+- A - 行后
 - esc -正常模式
 - : -命令行模式
 - :q -仅退出
@@ -235,6 +252,20 @@ jenv global 11
 - w -下个单词首部
 - e -下个单词尾部
 - b -上个单词首部
+- / -搜索
+
+**开启行号**
+
+```bash
+# 看版本和配置文件位置
+$ vim --version
+# 打开配置文件
+$ vim $HOME/.vimrc
+# 新增
+set number
+```
+
+
 
 ###  MariaDB相关
 
