@@ -64,7 +64,7 @@ apt install zsh
 chsh -s /bin/zsh
 ```
 
-配置[Oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) 即可
+配置[Oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) 
 
 | Method    | Command                                                      |
 | --------- | ------------------------------------------------------------ |
@@ -72,8 +72,23 @@ chsh -s /bin/zsh
 | **wget**  | sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 | **fetch** | sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" |
 
-配置[powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题
+配置[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)命令自动补全插件
+
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+配置[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)高亮显示常用命令插件
+
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+配置并使用[powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题
+
 1. Clone the repository:
+
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
