@@ -14,7 +14,7 @@
 <body>
   <div id="app">加载中</div>
   <script>
-     console.log("\n %c zhao %c www.mezzp.com ","color:#fff;background:linear-gradient(90deg,#448bff,#44e9ff);padding:5px 0;","color:#000;background:linear-gradient(90deg,#44e9ff,#ffffff);padding:5px 10px 5px 0px;");
+    console.log("\n %c zhao %c www.mezzp.com ", "color:#fff;background:linear-gradient(90deg,#448bff,#44e9ff);padding:5px 0;", "color:#000;background:linear-gradient(90deg,#44e9ff,#ffffff);padding:5px 10px 5px 0px;");
     window.$docsify = {
       name: 'zhao的部分笔记',
       repo: 'https://github.com/izzp/notes',
@@ -34,12 +34,17 @@
         placeholder: '输入关键字，快速寻找答案 🔍',
         noData: 'No Results! 😞',
         depth: 6,
+      }
     }
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 一键复制插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <!-- 表情符号 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <!-- 语法高亮 -->

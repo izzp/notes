@@ -301,3 +301,23 @@ MariaDB [(none)]> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.001 sec)
 ```
 
+### 系统和硬件信息命令inxi
+
+安装
+
+```bash
+# 基于Debian的发行版
+sudo apt install inxi
+
+# 基于RHEL的发行版：
+# 安装EPEL软件仓库：
+sudo yum install epel-release
+# 使用如下命令安装inxi
+sudo yum install inxi
+```
+
+使用
+
+```bash
+inxi -Fx0
+```
