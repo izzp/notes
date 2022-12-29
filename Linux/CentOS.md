@@ -6,6 +6,34 @@ netstat -nltp
 
 需安装net-tools `yum install net-tools`
 
+#### 基础补全
+
+```bash
+[root@zhao ~]# yum install bash-completion
+```
+
+#### 网络配置
+
+```bash
+# ip地址
+[root@zhao ~]# vi /etc/sysconfig/network-scripts/ifcfg-xxx
+
+修改 BOOTPROTO=static
+ONBOOT=yes
+IPADDR=10.0.0.22
+NETMASK=255.255.255.0
+GATEWAY=10.0.0.1
+DNS1=8.8.8.8
+
+# 网关配置
+[root@zhao ~]# vi /etc/sysconfig/network
+# DNS配置
+[root@zhao ~]# vi /etc/resolv.conf
+
+````
+
+
+
 ### 有趣功能
 
 ####  ssh输入密码后欢迎信息设置
