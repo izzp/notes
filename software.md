@@ -1,8 +1,8 @@
 # 常用软件记录
 
-> 自己设备的一些必备软件，仅记录，供参考
+> 自己设备的一些必备软件，仅记录
 
-`最后更新时间：20230101，待完善`
+`最后更新时间：20230217，待完善`
 
 ## Windows
 
@@ -15,10 +15,10 @@
 |[VS 2022](https://visualstudio.microsoft.com/zh-hans/vs/)| 宇宙第一IDE |
 |[VS Code](https://code.visualstudio.com/)| 当作编辑器使用，~~写~~改前端也可 |
 |Dev-C++| C和C++用 |
-|phpstudy| 使用mysql功能，不想一直开着mysql |
+|phpstudy| 使用MySQL功能，不想一直开着MySQL |
 |PotPlayer-64| 视频播放器 |
 |Navicat Premium| 数据库软件 |
-|Typora| markdown编辑器，入正 |
+|Typora| markdown编辑器，已入正 |
 |Pandoc| Typora编辑器扩充“导出”使用 |
 |[Python](https://www.python.org/)|    |
 |[PowerToys](https://learn.microsoft.com/zh-cn/windows/powertoys/install)| 用于自定义 Windows 的实用工具 |
@@ -32,7 +32,7 @@
 |Pr 2022|  |
 |Bandizip| 压缩软件 |
 |CCleaner| 清理软件 |
-|Clash for Windows| 不解释 |
+|Clash for Windows|  |
 |everything| 搜索软件 |
 |[Free File Sync](https://freefilesync.org/)| 文件同步软件 |
 |Microsoft 365| 之前叫office 365 ，附带1T OneDrive，很划算，自动同步文件到云 |
@@ -40,7 +40,7 @@
 |向日葵| 远程控制 |
 |VMware Workstation Pro| 虚拟机 |
 |[MobaXterm](https://mobaxterm.mobatek.net/)|好用的终端软件|
-|IDM| 下载软件，入正 |
+|IDM| 下载软件，已入正 |
 |火绒| |
 |QQ|   |
 |微信| |
@@ -52,8 +52,10 @@
 |[SourceTree](https://www.sourcetreeapp.com/)| Git管理工具 |
 |[DevToys](https://devtoys.app//)| 开发人员的瑞士军刀 |
 |[Sandboxie-Plus](https://sandboxie-plus.com/downloads/)| 沙箱 |
-|Steam|  |
+|Steam| Game |
 |Fluent Reader| RSS订阅 |
+|[QuickLook](https://github.com/QL-Win/QuickLook) | 空格预览软件，商店可以下载 |
+|[Postman](https://www.postman.com/) | API平台及管理 |
 
 ## iPadOS / iOS
 
@@ -66,7 +68,7 @@
 |Procreate| 画画 |
 |卡片日记| 见名知意 |
 |RD Client| 微软出的远程链接桌面 |
-|Bitwarden| 密码管理器 |
+|Bitwarden| 全平台密码管理器 |
 |彩云天气Pro| 天气，挺准的 |
 |ToDesk| 远程软件 |
 |米家| 智能家居 |
@@ -80,3 +82,4 @@
 |Brak| 开源的消息推送服务 |
 |ServerCat| 监控、管理服务器和容器,已入正 |
 |Speedtest| 测速软件，长按还有彩蛋 |
+|钱迹| 记账软件 |
