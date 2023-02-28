@@ -17,7 +17,7 @@
 | Ctrl+A |           回到行首           |
 | Ctrl+R |       搜索命令历史记录       |
 
-### 终端命令--Screen
+### 终端复用--Screen
 
 安装
 
@@ -45,6 +45,47 @@ exit
 # 使用-R/-r/-S均可
 screen -R [pid/Name] -X quit
 ```
+
+### 终端复用--Tmux
+
+安装
+
+```bash
+# Debian/Ubuntu
+apt install tmux
+# CentOS/Fedora
+yum install tmux
+```
+
+基本使用
+
+```bash
+# 启动命名tmux
+$ tmux new -s <name>
+# 分离会话,可使用快捷键 Ctrl+b d
+$ tmux detach
+# 查看当前所有的 Tmux 会话
+$ tmux ls
+# 重接会话 使用编号
+$ tmux attach -t 0/<name>
+# 杀死会话
+$ tmux kill-session -t 0/<name>
+# 切换会话
+$ tmux switch -t 0/<name>
+# 重命名会话
+$ tmux rename-session -t 0 <new-name>
+
+# 列出所有快捷键，及其对应的 Tmux 命令
+$ tmux list-keys
+# 列出所有 Tmux 命令及其参数
+$ tmux list-commands
+# 列出当前所有 Tmux 会话的信息
+$ tmux info
+```
+
+快捷键
+> 默认的快捷键前缀键是`Ctrl+b`
+
 
 ### 配置zsh并使用Oh-my-zsh
 
