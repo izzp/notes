@@ -38,7 +38,7 @@ tar -xf nginx-1.22.0.tar.gz
 cd cd nginx-1.22.0
 ```
 
-### 编译
+#### 编译
 
 参考[官网文档](http://nginx.org/en/docs/configure.html)
 
@@ -98,13 +98,13 @@ cd cd nginx-1.22.0
 make
 ```
 
-### 安装
+#### 安装
 
 ```bash
 make install
 ```
 
-### 创建守护
+#### 创建守护
 
 ```bash
 vim /usr/lib/systemd/system/nginx.service
@@ -122,7 +122,7 @@ PrivateTmp=true
 WantedBy=multi-user.target
 ```
 
-### 卸载
+#### 卸载
 
 ```bash
 # 停止nginx服务
