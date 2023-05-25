@@ -239,24 +239,24 @@ export NVM_DIR="$HOME/.nvm"
 
 **下载jenv**
 
-```
-git clone https://github.com/jenv/jenv.git ~/.jenv
+```bash
+$ git clone https://github.com/jenv/jenv.git ~/.jenv
 ```
 
 **配置到环境变量**
 
 到环境变量内配置jenv即可：
 
-```
+```bash
 # Bash Shell用户
-vim ~/.bashrc
+$ vim ~/.bashrc
 # ZSH Shell用户
-vim ~/.zshrc
+$ vim ~/.zshrc
 ```
 
 并添加：
 
-```
+```bash
 # Jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
@@ -266,42 +266,66 @@ eval "$(jenv init -)"
 
 最后，我们**重载环境变量**：
 
-```
+```bash
 # Bash Shell用户
-source ~/.bashrc
+$ source ~/.bashrc
 # ZSH Shell用户
-source ~/.zshrc
+$ source ~/.zshrc
 ```
 
 即可使用
 
-```
-jenv help
+```bash
+$ jenv help
 ```
 
 **添加JDK**
 
-```
-jenv add /usr/local/Zulu11
+```bash
+$ jenv add /usr/local/Zulu11
 ```
 **切换JDK**
 切换的方法很简单，首先看看当前安装的JDK版本：
 
-```
-jenv versions
+```bash
+$ jenv versions
 ```
 这个时候，我们用的还是默认JDK（system (set by /root/.jenv/version)），我们要切换到JDK11只需要：
 
 
-```
-jenv local 11
+```bash
+$ jenv local 11
 ```
 这时，这个目录下使用的JDK就是JDK11：
 需要全局JDK，可以用：
 
+```bash
+$ jenv global 11
 ```
-jenv global 11
+> 遇到`$JAVA_HOME` 未设置的报错，使用`jenv enable-plugin export`可以解决。
+
+添加 JVM 选项（全局，按目录或当前 shell 实例）
+
+```bash
+$ jenv global-options "-Xmx512m" 
 ```
+
+查看激活了那个插件。
+
+```bash
+$ jenv plugins
+```
+
+假设要 Maven 使用通过 Jenv 激活的 JDK，而不是默认`JAVA_HOME`配置。需要激活 Jenv 的 maven 插件。
+
+```bash
+$ jenv enable-plugin maven
+maven plugin activated
+
+$ jenv disable-plugin maven
+maven disabled
+```
+
 ### nano的使用
 
 高亮
@@ -399,4 +423,14 @@ sudo yum install inxi
 
 ```bash
 inxi -Fx0
+```
+
+### 常见错误处理
+
+使用OpenJDK错误处理
+
+```bash
+# 缺少字体
+$ apt install fontconfig
+$ apt install fonts-dejavu
 ```
