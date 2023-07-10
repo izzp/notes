@@ -383,7 +383,53 @@ $ vim $HOME/.vimrc
 set number
 ```
 
+### iotop 监控磁盘I/O使用状况工具
 
+#### 用法
+
+```shell
+iotop（选项）
+```
+
+#### 选项
+
+```shell
+-o：只显示有io操作的进程
+-b：批量显示，无交互，主要用作记录到文件。
+-n NUM：显示NUM次，主要用于非交互式模式。
+-d SEC：间隔SEC秒显示一次。
+-p PID：监控的进程pid。
+-u USER：监控的进程用户。
+```
+
+### ncdu 磁盘使用分析查看工具
+
+#### 用法
+
+```shell
+ncdu <options> <directory>
+```
+
+查看当前目录磁盘使用，直接：
+
+```shell
+ncdu
+# 按 Q 键退出
+```
+
+查看指定目录磁盘使用：
+
+```shell
+ncdu /  #根目录，全盘
+ncdu /home
+# 按 Q 键退出
+```
+
+### Fail2Ban的使用
+
+```bash
+$ apt install fail2ban
+```
 
 ###  MariaDB相关
 
