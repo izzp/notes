@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "My Public Notes",
   description: "A Public Notes Site",
+  lastUpdated: true ,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -45,7 +46,13 @@ export default defineConfig({
         ]
       }
     ],
-
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      }
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/izzp/notes' }
     ],
