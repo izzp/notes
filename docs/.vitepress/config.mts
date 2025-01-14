@@ -61,5 +61,8 @@ export default defineConfig({
       copyright: 'Copyright © 2019-present zzp'
     },
     outline: [2,4],
+    search: {
+      provider: 'local'
+    }
   }
 })
