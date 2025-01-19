@@ -443,7 +443,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 #### FROM	
 
---指定基础镜像
+> 指定基础镜像
 
 ```bash
 #一般是第一条命令，
@@ -457,7 +457,7 @@ FROM <镜像>@digest[效验码]
 > 提供制作者本人信息
 > LABLE逐步替换MAINTAINER
 
-#### NEV
+#### ENV
 
 > 配置环境变量
 

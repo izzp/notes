@@ -176,15 +176,12 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 3. 配置向导：键入`p10k configure`直接访问内置配置向导。
 
 
-### 安装NVM管理多版本Node.js
+### 安装FNM管理多版本Node.js
 
-安装和更新脚本		[项目地址](https://github.com/nvm-sh/nvm)
+安装和更新脚本		[项目地址](https://github.com/Schniz/fnm)
 
 ```bash
-# 把命令中的版本改为最新版本 https://github.com/nvm-sh/nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-# 或者
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -fsSL https://fnm.vercel.app/install | bash
 ```
 
 重载环境变量
@@ -199,23 +196,23 @@ source ~/.bashrc
 测试
 
 ```bash
-nvm -v
+fnm -V
 ```
 
 基本使用
 
-```bashi
+```bash
 # 查看已经安装的脚本
-nvm list
+fnm ls
 
 # 查看可安装的lts版本
-nvm ls-remote --lts
+fnm ls-remote
 
 # 安装需要的版本
-nvm install 16.14.1
+fnm install v22.13.0
 
 # 激活需要使用的版本
-nvm use 16
+fnm use 22
 
 即可
 ```
@@ -223,14 +220,8 @@ nvm use 16
 卸载
 
 ```bash
-# 删除NVM以及Node.js
-rm -rf ~/.nvm
-# 删除可能存在的NPM
-rm -rf ~/.npn
-# 在环境变量内移除：
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+rm -rf ~/.fnm
+# 并移除对应环境变量
 ```
 
 ### 使用Jenv配置多版本JDK
